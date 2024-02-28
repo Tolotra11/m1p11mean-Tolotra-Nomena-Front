@@ -50,6 +50,10 @@ import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { IndisponibiliteModalComponent } from './page/indisponibilte/indisponibilite-modal/indisponibilite-modal.component';
+import { UserComponent } from './component/user/user.component';
+import { UserAddModalComponent } from './component/user/user-add-modal/user-add-modal.component';
+import { UserEditModalComponent } from './component/user/user-edit-modal/user-edit-modal.component';
+import { UserDeleteModalComponent } from './component/user/user-delete-modal/user-delete-modal.component';
 
 @NgModule({
   declarations: [
@@ -74,7 +78,11 @@ import { IndisponibiliteModalComponent } from './page/indisponibilte/indisponibi
     EventModalComponent,
     TaskComponent,
     IndisponibiliteComponent,
-    IndisponibiliteModalComponent
+    IndisponibiliteModalComponent,
+    UserComponent,
+    UserAddModalComponent,
+    UserEditModalComponent,
+    UserDeleteModalComponent
   ],
   imports: [
     BrowserModule,

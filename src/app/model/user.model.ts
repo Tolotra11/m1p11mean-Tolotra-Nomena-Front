@@ -6,5 +6,5 @@ export class User {
     mdp?:string;
     confirmMdp?:string;
     role?:number;
-    etat?:number
+    etat?:number;
  }

@@ -10,6 +10,7 @@ import { DiaryComponent } from './component/diary/diary.component';
 import { AppointmentEmployeComponent } from './component/appointment-employe/appointment-employe.component';
 import { TaskComponent } from './component/task/task.component';
 import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
+import { UserComponent } from './component/user/user.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,9 @@ const routes: Routes = [
   },
   {
     path:'manager/depense',component: DepenseCrudComponent
+  },
+  {
+    path:'manager/user',component: UserComponent
   },
   {
     path:'employe/login', component: LoginEmployeComponent
