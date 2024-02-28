@@ -3,8 +3,7 @@ import { Injectable } from '@angular/core';
 import { getToken, onMessage } from 'firebase/messaging';
 import { messaging } from '../../../firebase/firebaseConfig';
 import { environment } from '../../../environments/environment';
-
-
+import { DeviceRegistryService } from '../device/device-registry.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,7 +15,7 @@ export class PushnotificationService {
     'Access-Control-Allow-Origin': '*',
      'Authorization':this.token || '' // Permettre l'accès depuis n'importe quelle origine
   });
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private deviceFirebase: DeviceRegistryService) { }
 
   async requestPermission() {
     const permission = await Notification.requestPermission();
@@ -25,11 +24,14 @@ export class PushnotificationService {
         vapidKey: environment.firebaseConfig.vapidKey
       });
       console.log(token_registration);
-      // return this.http.post(base_url+'/devices', {
-      //     token_registration: token_registration
-      // },{
-      //   headers: this.headers
-      // })
+      this.deviceFirebase.device_register({token_registration:token_registration}).subscribe({
+        next:(res)=>{
+          console.log('Enregistrement de appareil effectué avec succès');
+        },
+        error:(error) =>{
+            console.error(error.error.message);
+        }
+      })
     }else if (permission === "denied") {
       alert("You denied for the notification");
     }

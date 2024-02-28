@@ -11,6 +11,6 @@ export class AppComponent implements OnInit{
   constructor(private pushNotification: PushnotificationService){};
   ngOnInit() {
     // this.pushNotification.requestPermission();
-    // this.pushNotification.listenForMessage();
+    this.pushNotification.listenForMessage();
   }
 }
