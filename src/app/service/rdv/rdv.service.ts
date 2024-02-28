@@ -69,4 +69,11 @@ export class RdvService {
       catchError(this.handleError)
     );
   }
+
+  rollBackRdv(id: string): Observable<any> {
+    return this.http.get<any>(`${base_url}/employes/tasks/done?id=${id}&etat=1`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
 }

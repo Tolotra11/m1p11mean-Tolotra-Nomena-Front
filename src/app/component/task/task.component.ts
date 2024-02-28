@@ -43,14 +43,26 @@ export class TaskComponent implements OnInit{
         event.previousIndex,
         event.currentIndex,
       );
-      this.taskService.doneRdv(event.item.data._id).subscribe({
-        next: (res)=>{
-          console.log('success');
-        },
-        error: (error)=>{
-          console.error(error);
-        }
-      })
+      if(event.item.data.etat == 10){
+        this.taskService.rollBackRdv(event.item.data._id).subscribe({
+          next: (res)=>{
+            console.log(res.message);
+          },
+          error: (error)=>{
+            console.error(error);
+          }
+        })
+      }
+      else{
+        this.taskService.doneRdv(event.item.data._id).subscribe({
+          next: (res)=>{
+            console.log(res.message);
+          },
+          error: (error)=>{
+            console.error(error);
+          }
+        })
+      }
       
     }
   }
