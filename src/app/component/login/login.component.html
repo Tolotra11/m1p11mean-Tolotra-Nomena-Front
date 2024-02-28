@@ -1,0 +1,61 @@
+
+<div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <div
+      class="position-relative overflow-hidden radial-gradient min-vh-100 d-flex align-items-center justify-content-center">
+      <div class="d-flex align-items-center justify-content-center w-100">
+        <div class="row justify-content-center w-100">
+          <div class="col-md-8 col-lg-6 col-xxl-3">
+            <div class="card mb-0">
+              <div class="card-body">
+                @if(role == 10){
+                    <h1>Se connecter</h1>
+                }
+                @else if(role == 20){
+                    <h1>Se connecter en tant qu'employé</h1>
+                }
+                @else{
+                    <h1>Se connecter en tant que Manager</h1>
+                }
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                  <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label" >Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" aria-describedby="emailHelp" required>
+                    @if(submitted && f['email'].errors){
+                        @if (f['email'].errors['required']) {
+                            <div style="color: red;">L'adresse mail est requis</div>
+                            }
+                        @if (f['email'].errors['email']) {
+                        <div style="color: red;">L'adresse mail est invalide</div>
+                        }
+                    }
+                  </div>
+                  <div class="mb-4">
+                    <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" formControlName="password" required>
+                      @if (submitted &&  f['password'].errors) {
+                        @if (f['password'].errors['required']) {
+                        <div style="color: red;">Le mot de passe est requis</div>
+                        }
+                      }
+                </div>
+                  <input type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 rounded-2" value="Se connecter"/>
+                  @if(role === 10){
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">Vous n'avez pas encore de compte?</p>
+                    <a class="text-primary fw-bold ms-2" >Créer un compte</a>
+                  </div>
+                }
+                </form>
+                @if (submitted && error){
+                    <div class="alert alert-danger">
+                        {{error}}
+                    </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

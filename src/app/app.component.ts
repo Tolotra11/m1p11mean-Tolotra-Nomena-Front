@@ -10,7 +10,6 @@ export class AppComponent implements OnInit{
   title = 'm1p11mean-Tolotra-Nomena-Front';
   constructor(private pushNotification: PushnotificationService){};
   ngOnInit() {
-    // this.pushNotification.requestPermission();
     this.pushNotification.listenForMessage();
   }
 }
