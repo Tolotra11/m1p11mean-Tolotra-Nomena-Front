@@ -1,16 +1,16 @@
 @if(getLogingStatus()){
   <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
     data-sidebar-position="fixed" data-header-position="fixed">
-    <div class="body-wrapper">
     @if(getRoleStatus() == "30"){
-    <app-header-manager/>
-  }
+      <app-header-manager/>
+    }
+    <div class="body-wrapper">
+      <app-header-option/>
   <div class="container-fluid">
   <router-outlet />
   </div>
   </div>
   </div>
-  <app-bottom></app-bottom>
 }
 @else{
   <router-outlet />

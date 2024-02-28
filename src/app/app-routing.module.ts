@@ -4,10 +4,14 @@ import { LoginManagerComponent } from './page/login-manager/login-manager.compon
 import { LoginEmployeComponent } from './page/login-employe/login-employe.component';
 import { LoginClientComponent } from './page/login-client/login-client.component';
 import { RegisterComponent } from './component/register/register.component';
+import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
 
 const routes: Routes = [
   {
     path:'manager/login', component: LoginManagerComponent
+  },
+  {
+    path:'manager/accueil', component: AccueilManagerComponent
   },
   {
     path:'employe/login', component: LoginEmployeComponent

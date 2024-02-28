@@ -15,6 +15,8 @@ import { LoginClientComponent } from './page/login-client/login-client.component
 import { RegisterComponent } from './component/register/register.component';
 import { HeaderManagerComponent } from './component/header/header-manager/header-manager.component';
 import { BottomComponent } from './component/bottom/bottom.component';
+import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
+import { HeaderOptionComponent } from './component/header-option/header-option.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { BottomComponent } from './component/bottom/bottom.component';
     LoginClientComponent,
     RegisterComponent,
     HeaderManagerComponent,
-    BottomComponent
+    BottomComponent,
+    AccueilManagerComponent,
+    HeaderOptionComponent
   ],
   imports: [
     BrowserModule,
