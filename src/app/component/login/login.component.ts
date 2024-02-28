@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit{
               this.push.requestPermission();
           }
           else{
-            this.router.navigate(['/']);
+            this.router.navigate(['/employe/rdv']);
           }
         },
         error: (error) => {

@@ -36,6 +36,10 @@ import { ServiceListComponent } from './page/service-list/service-list.component
 import { ServiceDialogComponent } from './component/service-dialog/service-dialog.component';
 import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
 import { DepenseDialogComponent } from './component/depense-dialog/depense-dialog.component';
+import { HeaderEmployeComponent } from './component/header-employe/header-employe.component';
+import { DiaryComponent } from './component/diary/diary.component';
+import { CancelRdvModalComponent } from './component/cancel-rdv/cancel-rdv.component';
+import { AddUnavailabilityModalComponent } from './component/add-unavaibility-modal/add-unavaibility-modal.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,11 @@ import { DepenseDialogComponent } from './component/depense-dialog/depense-dialo
     ServiceListComponent,
     ServiceDialogComponent,
     DepenseCrudComponent,
-    DepenseDialogComponent
+    DepenseDialogComponent,
+    HeaderEmployeComponent,
+    DiaryComponent,
+    CancelRdvModalComponent,
+    AddUnavailabilityModalComponent
   ],
   imports: [
     BrowserModule,

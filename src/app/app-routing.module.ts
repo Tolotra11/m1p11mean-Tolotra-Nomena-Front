@@ -6,6 +6,7 @@ import { LoginClientComponent } from './page/login-client/login-client.component
 import { RegisterComponent } from './component/register/register.component';
 import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
 import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
+import { DiaryComponent } from './component/diary/diary.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,9 @@ const routes: Routes = [
   },
   {
     path:'employe/login', component: LoginEmployeComponent
+  },
+  {
+    path: 'employe/rdv', component: DiaryComponent
   },
   {
     path:'client/login',component: LoginClientComponent
