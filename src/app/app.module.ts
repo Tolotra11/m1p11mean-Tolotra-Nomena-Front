@@ -8,10 +8,24 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { CorsInterceptor } from './interceptor/cors-interceptor';
 import { AuthInterceptor } from './interceptor/AuthInterceptor';
+import { LoginComponent } from './component/login/login.component';
+import { LoginManagerComponent } from './page/login-manager/login-manager.component';
+import { LoginEmployeComponent } from './page/login-employe/login-employe.component';
+import { LoginClientComponent } from './page/login-client/login-client.component';
+import { RegisterComponent } from './component/register/register.component';
+import { HeaderManagerComponent } from './component/header/header-manager/header-manager.component';
+import { BottomComponent } from './component/bottom/bottom.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent,
+    LoginManagerComponent,
+    LoginEmployeComponent,
+    LoginClientComponent,
+    RegisterComponent,
+    HeaderManagerComponent,
+    BottomComponent
   ],
   imports: [
     BrowserModule,
