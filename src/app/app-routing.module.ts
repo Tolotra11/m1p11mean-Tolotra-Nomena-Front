@@ -5,6 +5,7 @@ import { LoginEmployeComponent } from './page/login-employe/login-employe.compon
 import { LoginClientComponent } from './page/login-client/login-client.component';
 import { RegisterComponent } from './component/register/register.component';
 import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
+import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,9 @@ const routes: Routes = [
   },
   {
     path:'manager/accueil', component: AccueilManagerComponent
+  },
+  {
+    path:'manager/depense',component: DepenseCrudComponent
   },
   {
     path:'employe/login', component: LoginEmployeComponent

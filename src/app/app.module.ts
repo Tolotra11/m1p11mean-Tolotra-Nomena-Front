@@ -34,6 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { ServiceListComponent } from './page/service-list/service-list.component';
 import { ServiceDialogComponent } from './component/service-dialog/service-dialog.component';
+import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
+import { DepenseDialogComponent } from './component/depense-dialog/depense-dialog.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { ServiceDialogComponent } from './component/service-dialog/service-dialo
     AccueilManagerComponent,
     HeaderOptionComponent,
     ServiceListComponent,
-    ServiceDialogComponent
+    ServiceDialogComponent,
+    DepenseCrudComponent,
+    DepenseDialogComponent
   ],
   imports: [
     BrowserModule,

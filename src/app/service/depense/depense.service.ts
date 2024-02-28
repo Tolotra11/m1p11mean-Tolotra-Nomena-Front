@@ -22,7 +22,7 @@ export class DepenseService {
   }
 
   deleteDepense(id: string): Observable<any> {
-    return this.http.put(`${base_url}/depenses/deletedepense/${id}`, {});
+    return this.http.delete(`${base_url}/depenses/deletedepense/${id}`, {});
   }
 
   getDepenseDetails(id: string): Observable<any> {
