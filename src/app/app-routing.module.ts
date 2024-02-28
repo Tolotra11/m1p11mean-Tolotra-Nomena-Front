@@ -9,6 +9,7 @@ import { DepenseCrudComponent } from './component/depense-crud/depense-crud.comp
 import { DiaryComponent } from './component/diary/diary.component';
 import { AppointmentEmployeComponent } from './component/appointment-employe/appointment-employe.component';
 import { TaskComponent } from './component/task/task.component';
+import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
 
 const routes: Routes = [
   {
@@ -30,7 +31,7 @@ const routes: Routes = [
     path: 'employe/task', component: TaskComponent
   },
   {
-    path: 'employe/horaire', component: DiaryComponent
+    path: 'employe/horaire', component: IndisponibiliteComponent
   },
   {
     path:'client/login',component: LoginClientComponent

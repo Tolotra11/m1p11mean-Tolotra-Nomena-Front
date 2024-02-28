@@ -46,7 +46,10 @@ import { TaskComponent } from './component/task/task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-
+import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { IndisponibiliteModalComponent } from './page/indisponibilte/indisponibilite-modal/indisponibilite-modal.component';
 
 @NgModule({
   declarations: [
@@ -69,7 +72,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     AddUnavailabilityModalComponent,
     AppointmentEmployeComponent,
     EventModalComponent,
-    TaskComponent
+    TaskComponent,
+    IndisponibiliteComponent,
+    IndisponibiliteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -95,7 +100,9 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatDialogModule,
     DragDropModule,
     MatProgressSpinnerModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

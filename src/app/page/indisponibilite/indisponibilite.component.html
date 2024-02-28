@@ -1,0 +1,11 @@
+@if(loading){
+    <ngx-skeleton-loader count="5" appearance="line" />
+  }
+  @else{
+    <h1>Vos indisponibilités</h1>
+    <p><button class="btn btn-primary" (click)="UnavailabilityEventClick()">Ajouter une indisponibilité</button></p>
+  <full-calendar
+    [options]="calendarOptions"
+  ></full-calendar>
+  }
+  

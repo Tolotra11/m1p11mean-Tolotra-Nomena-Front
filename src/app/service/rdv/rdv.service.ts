@@ -49,9 +49,10 @@ export class RdvService {
       const events = [];
       for(let i = 0; i< rdv.length; i++){
           events.push({
-            title: rdv[i].service.nom,
+            title: rdv[i].service ? rdv[i].service.nom : 'Indisponibilité',
             start: rdv[i].dateheuredebut,
             end: rdv[i].dateheurefin,
+            color: rdv[i].status == 10 ? 'green' : 'red',
             extendedProps:{
               rdv: rdv[i]
             }
@@ -72,6 +73,12 @@ export class RdvService {
 
   rollBackRdv(id: string): Observable<any> {
     return this.http.get<any>(`${base_url}/employes/tasks/done?id=${id}&etat=1`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getUnavailibity(): Observable<any> {
+    return this.http.get<any>(`${base_url}/employes/unaivalability`).pipe(
       catchError(this.handleError)
     );
   }

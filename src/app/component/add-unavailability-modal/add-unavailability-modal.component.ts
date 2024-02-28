@@ -22,20 +22,14 @@ export class AddUnavailabilityModalComponent {
 
   onSaveClick(): void {
     this.rendezVousService.indisponibiliseRdv(this.data.startDateTime, this.data.endDateTime).subscribe(
-      () => {
+      (res) => {
         console.log('Indisponibilité enregistrée avec succès !');
         this.successMessage = 'Indisponibilité enregistrée avec succès !';
         // Fermeture du dialogue après avoir enregistré les dates d'indisponibilité
         this.dialogRef.close({ success: true });
       },
       (error) => {
-        console.error('Erreur lors de l\'enregistrement de l\'indisponibilité :', error);
-        // Gérer les différents types d'erreurs et afficher un message approprié
-        if (error.status === 400) {
-          this.errorMessage = "Un rendez-vous existe déjà dans l'intervalle de dates spécifié";
-        } else {
-          this.errorMessage = "Une erreur s'est produite lors de l'enregistrement de l'indisponibilité. Veuillez réessayer plus tard.";
-        }
+        this.errorMessage = error;
       }
     );
   }

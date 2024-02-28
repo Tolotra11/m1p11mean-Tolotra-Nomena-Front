@@ -10,16 +10,6 @@ import { formatDateString, formatHeure } from '../../utils/utils';
 export class EventModalComponent {
   formatter = formatDateString;
   formatTime = formatHeure;
-  optionsDateOnly = {
-    day: '2-digit',
-    month: 'long',
-    year: 'numeric',
-  }
-
-  optionsTime = {
-    hour: '2-digit',
-    minute: '2-digit',
-  }
   constructor(
     public dialogRef: MatDialogRef<EventModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
