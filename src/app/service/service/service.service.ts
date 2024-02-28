@@ -32,6 +32,6 @@ export class ServiceService {
   }
 
   searchService(query: any): Observable<any> {
-    return this.http.get(`${base_url}/managers/services/rechercherservice`, { params: query });
+    return this.http.get(`${base_url}/services/search`, { params: query });
   }
 }
