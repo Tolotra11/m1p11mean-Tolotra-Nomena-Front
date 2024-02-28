@@ -12,12 +12,16 @@ import { RendezVous } from '../../model/rdv.model';
 export class RdvService {
   constructor(private http: HttpClient) { }
 
+  getTask(): Observable<any> {
+    return this.http.get<any>(`${base_url}/employes/tasks`);
+  }
+
   getRdv(): Observable<RendezVous[]> {
     return this.http.get<RendezVous[]>(`${base_url}/employes/employee`);
   }
 
   cancelRdv(id: string): Observable<any> {
-    return this.http.get<any>(`${base_url}/valider_un_rdv?status=-10`).pipe(
+    return this.http.get<any>(`${base_url}/employes/valider_un_rdv?id=${id}&status=-10`).pipe(
       catchError(this.handleError)
     );
   }
@@ -58,5 +62,11 @@ export class RdvService {
   private handleError(error: any) {
     console.error('Une erreur s\'est produite : ', error);
     return throwError('Une erreur s\'est produite, veuillez réessayer plus tard.');
+  }
+
+  doneRdv(id: string): Observable<any> {
+    return this.http.get<any>(`${base_url}/employes/tasks/done?id=${id}&etat=10`).pipe(
+      catchError(this.handleError)
+    );
   }
 }

@@ -1,31 +1,36 @@
-<div class="example-container">
-    <h2>A faire</h2>
-  
-    <div
-      cdkDropList
-      #todoList="cdkDropList"
-      [cdkDropListData]="todo"
-      [cdkDropListConnectedTo]="[doneList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      @for (item of todo; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-      }
-    </div>
-  </div>
-  
-  <div class="example-container">
-    <h2>Terminés</h2>
-  
-    <div
-      cdkDropList
-      #doneList="cdkDropList"
-      [cdkDropListData]="done"
-      [cdkDropListConnectedTo]="[todoList]"
-      class="example-list"
-      (cdkDropListDropped)="drop($event)">
-      @for (item of done; track item) {
-        <div class="example-box" cdkDrag>{{item}}</div>
-      }
-    </div>
-  </div>
+@if(!loading){
+    <div class="example-container">
+        <h2>A faire</h2>
+      
+        <div
+          cdkDropList
+          #todoList="cdkDropList"
+          [cdkDropListData]="todo"
+          [cdkDropListConnectedTo]="[doneList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          @for (item of todo; track item) {
+            <div class="example-box" cdkDrag [cdkDragData]="item">{{item.service.nom}}</div>
+          }
+        </div>
+      </div>
+      
+      <div class="example-container">
+        <h2>Terminés</h2>
+      
+        <div
+          cdkDropList
+          #doneList="cdkDropList"
+          [cdkDropListData]="done"
+          [cdkDropListConnectedTo]="[todoList]"
+          class="example-list"
+          (cdkDropListDropped)="drop($event)">
+          @for (item of done; track item) {
+            <div class="example-box" cdkDrag [cdkDragData]="item">{{item.service.nom}}</div>
+          }
+        </div>
+      </div>
+}
+@else{
+    <ngx-skeleton-loader count="5" appearance="line" />
+}

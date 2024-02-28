@@ -44,6 +44,9 @@ import { EventModalComponent } from './component/event-modal/event-modal.compone
 import { MatDialogModule } from '@angular/material/dialog';
 import { TaskComponent } from './component/task/task.component';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+
 
 @NgModule({
   declarations: [
@@ -90,7 +93,9 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
     ToastrModule.forRoot(),
     FullCalendarModule,
     MatDialogModule,
-    DragDropModule
+    DragDropModule,
+    MatProgressSpinnerModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
     {
