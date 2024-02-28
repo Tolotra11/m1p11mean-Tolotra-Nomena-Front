@@ -12,6 +12,7 @@ import { LoginComponent } from './component/login/login.component';
 import { LoginManagerComponent } from './page/login-manager/login-manager.component';
 import { LoginEmployeComponent } from './page/login-employe/login-employe.component';
 import { LoginClientComponent } from './page/login-client/login-client.component';
+import { RegisterComponent } from './component/register/register.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginClientComponent } from './page/login-client/login-client.component
     LoginComponent,
     LoginManagerComponent,
     LoginEmployeComponent,
-    LoginClientComponent
+    LoginClientComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
