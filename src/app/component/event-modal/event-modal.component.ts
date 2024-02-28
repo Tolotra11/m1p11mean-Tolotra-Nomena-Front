@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { formatDateString } from '../../utils/utils';
+import { formatDateString, formatHeure } from '../../utils/utils';
 
 @Component({
   selector: 'app-event-modal',
@@ -9,6 +9,7 @@ import { formatDateString } from '../../utils/utils';
 })
 export class EventModalComponent {
   formatter = formatDateString;
+  formatTime = formatHeure;
   optionsDateOnly = {
     day: '2-digit',
     month: 'long',

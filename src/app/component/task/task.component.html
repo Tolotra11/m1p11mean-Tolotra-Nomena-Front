@@ -1,5 +1,6 @@
 @if(!loading){
     <h1>Les tâche du jour</h1>
+    <p><b>Commission: </b>{{commission}} MGA</p>
     <div class="example-container">
         <h5>A faire</h5>
       
@@ -11,7 +12,13 @@
           class="example-list"
           (cdkDropListDropped)="drop($event)">
           @for (item of todo; track item) {
-            <div class="example-box" cdkDrag [cdkDragData]="item">{{item.service.nom}}</div>
+            <div style="padding: 10px;" cdkDrag [cdkDragData]="item">
+              <p><b>{{item.service.nom}}</b></p>
+              @if(item.client){
+                <p><b>Client: </b>{{item.client.nom}} {{item.client.prenom}}</p>
+              }
+              <p>{{formatterDate(item.dateheuredebut)}}</p>
+            </div>
           }
         </div>
       </div>
@@ -27,7 +34,13 @@
           class="example-list"
           (cdkDropListDropped)="drop($event)">
           @for (item of done; track item) {
-            <div class="example-box" cdkDrag [cdkDragData]="item">{{item.service.nom}}</div>
+            <div style="padding: 10px;" cdkDrag [cdkDragData]="item">
+              <p><b>{{item.service.nom}}</b></p>
+              @if(item.client){
+                <p><b>Client: </b>{{item.client.nom}} {{item.client.prenom}}</p>
+              }
+              <p>{{formatterDate(item.dateheuredebut)}} de {{formatterTime(item.dateheuredebut)}} à {{formatterTime(item.dateheurefin)}}</p>
+            </div>
           }
         </div>
       </div>

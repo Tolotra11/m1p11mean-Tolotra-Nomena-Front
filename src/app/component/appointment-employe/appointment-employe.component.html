@@ -1,4 +1,8 @@
-<h1>Vos rendez-vous en cours</h1>
+@if(loading){
+  <ngx-skeleton-loader count="5" appearance="line" />
+}
+@else{
+  <h1>Vos rendez-vous en cours</h1>
 <full-calendar
   [options]="calendarOptions"
 ></full-calendar>
@@ -23,3 +27,4 @@
       </div>
     </div>
   </div>
+}

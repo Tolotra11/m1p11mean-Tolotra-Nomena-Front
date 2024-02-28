@@ -2,8 +2,8 @@ export interface RendezVous {
     _id: string;
     idClient: string;
     idEmploye: string;
-    dateheuredebut: Date;
-    dateheurefin: Date;
+    dateheuredebut: string;
+    dateheurefin: string;
     prix: number;
     service: {
       _id: string;

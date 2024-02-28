@@ -6,8 +6,8 @@ import {
 } from '@angular/cdk/drag-drop';
 import { RdvService } from '../../service/rdv/rdv.service';
 import { RendezVous } from '../../model/rdv.model';
-import { error } from 'jquery';
-import { er } from '@fullcalendar/core/internal-common';
+import { formatDateString, formatHeure } from '../../utils/utils';
+
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
@@ -15,12 +15,15 @@ import { er } from '@fullcalendar/core/internal-common';
 })
 export class TaskComponent implements OnInit{
   loading = true;
+  formatterDate = formatDateString;
+  formatterTime = formatHeure;
   constructor(private taskService: RdvService){};
   ngOnInit(): void {
       this.taskService.getTask().subscribe({
         next:(res)=>{
           this.todo = res.todo;
           this.done = res.done;
+          this.commission = res.commission;
           this.loading = false;
         },
         error:(error)=>{
@@ -32,7 +35,8 @@ export class TaskComponent implements OnInit{
   todo:RendezVous[] = [];
 
   done:RendezVous[] = [];
-  
+
+  commission = '';  
   drop(event: CdkDragDrop<RendezVous[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
@@ -43,6 +47,7 @@ export class TaskComponent implements OnInit{
         event.previousIndex,
         event.currentIndex,
       );
+      this.getLocalCommission();
       if(event.item.data.etat == 10){
         this.taskService.rollBackRdv(event.item.data._id).subscribe({
           next: (res)=>{
@@ -65,6 +70,15 @@ export class TaskComponent implements OnInit{
       }
       
     }
+  }
+
+  getLocalCommission(){
+    let newCom = 0;
+    this.done.forEach(element => {
+      newCom += (element.service.commission/100)*element.prix;
+      
+    });
+    this.commission = newCom.toFixed(2);
   }
 
 }

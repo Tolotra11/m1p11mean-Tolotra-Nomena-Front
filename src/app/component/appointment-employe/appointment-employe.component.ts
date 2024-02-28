@@ -12,6 +12,7 @@ import { EventModalComponent } from '../event-modal/event-modal.component';
   styleUrl: './appointment-employe.component.css'
 })
 export class AppointmentEmployeComponent implements OnInit{
+  loading = true;
   selectedEvent: any;
   calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, timeGridPlugin, listPlugin],
@@ -29,12 +30,14 @@ export class AppointmentEmployeComponent implements OnInit{
   constructor(private eventService: RdvService,private dialog: MatDialog){}
   ngOnInit(): void {
     this.loadEvents();
+    
   }
 
   loadEvents() {
     this.eventService.getMyAppointmate().subscribe({
       next:(res)=>{
           this.calendarOptions.events = this.eventService.convertRdvToEvent(res);
+          this.loading = false;
       },
       error:(error)=>{
         console.error(error);

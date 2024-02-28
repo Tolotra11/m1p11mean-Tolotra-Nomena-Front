@@ -30,6 +30,9 @@ const routes: Routes = [
     path: 'employe/task', component: TaskComponent
   },
   {
+    path: 'employe/horaire', component: DiaryComponent
+  },
+  {
     path:'client/login',component: LoginClientComponent
   },{
     path:'client/register',component: RegisterComponent
