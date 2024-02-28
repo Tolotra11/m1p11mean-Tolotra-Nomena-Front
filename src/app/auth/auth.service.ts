@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../model/user.model';
 import { Router } from '@angular/router';
+import { DeviceRegistryService } from '../service/device/device-registry.service';
+import { error } from 'jquery';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +13,7 @@ import { Router } from '@angular/router';
 export class AuthService{
   private authTokenKey = 'authToken';
   private role = 'role';
-  constructor(private http: HttpClient ,private router: Router) { }
+  constructor(private http: HttpClient ,private router: Router, private device:DeviceRegistryService) { }
   headers = new HttpHeaders({
     'Content-Type': 'application/json',
     'Access-Control-Allow-Origin': '*' // Permettre l'accès depuis n'importe quelle origine
@@ -69,7 +71,16 @@ export class AuthService{
     else{
       link = 'manager/login';
     }
-
+    if(role =='10'){
+      this.device.device_delete().subscribe({
+        next: (res)=>{
+          console.log('success');
+        },
+        error: (error)=>{
+          console.error(error);
+        }
+      })
+    }
     localStorage.removeItem(this.authTokenKey);
     this.router.navigate([link]);
   }
