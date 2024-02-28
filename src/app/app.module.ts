@@ -38,8 +38,12 @@ import { DepenseCrudComponent } from './component/depense-crud/depense-crud.comp
 import { DepenseDialogComponent } from './component/depense-dialog/depense-dialog.component';
 import { HeaderEmployeComponent } from './component/header-employe/header-employe.component';
 import { DiaryComponent } from './component/diary/diary.component';
-import { CancelRdvModalComponent } from './component/cancel-rdv/cancel-rdv.component';
-import { AddUnavailabilityModalComponent } from './component/add-unavaibility-modal/add-unavaibility-modal.component';
+import { AddUnavailabilityModalComponent } from './component/add-unavailability-modal/add-unavailability-modal.component';
+import { AppointmentEmployeComponent } from './component/appointment-employe/appointment-employe.component';
+import { EventModalComponent } from './component/event-modal/event-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskComponent } from './component/task/task.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -59,8 +63,10 @@ import { AddUnavailabilityModalComponent } from './component/add-unavaibility-mo
     DepenseDialogComponent,
     HeaderEmployeComponent,
     DiaryComponent,
-    CancelRdvModalComponent,
-    AddUnavailabilityModalComponent
+    AddUnavailabilityModalComponent,
+    AppointmentEmployeComponent,
+    EventModalComponent,
+    TaskComponent
   ],
   imports: [
     BrowserModule,
@@ -83,6 +89,8 @@ import { AddUnavailabilityModalComponent } from './component/add-unavaibility-mo
     MatExpansionModule,
     ToastrModule.forRoot(),
     FullCalendarModule,
+    MatDialogModule,
+    DragDropModule
   ],
   providers: [
     {

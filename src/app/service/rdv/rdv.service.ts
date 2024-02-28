@@ -29,13 +29,32 @@ export class RdvService {
       dateheurefin: dateFin,
       status: 0,
     };
-
+    console.log(body);
     // Effectuer la requête POST vers l'API backend
     return this.http.post<any>(`${base_url}/employes/inserer_rdv`, body).pipe(
       catchError(this.handleError)
     );
   }
 
+
+  getMyAppointmate():Observable<RendezVous[]>{
+      return this.http.get<RendezVous[]>(base_url+'/employes/rdvs');
+  }
+
+  convertRdvToEvent(rdv:RendezVous[]){
+      const events = [];
+      for(let i = 0; i< rdv.length; i++){
+          events.push({
+            title: rdv[i].service.nom,
+            start: rdv[i].dateheuredebut,
+            end: rdv[i].dateheurefin,
+            extendedProps:{
+              rdv: rdv[i]
+            }
+          });
+      }
+      return events;
+  }
   private handleError(error: any) {
     console.error('Une erreur s\'est produite : ', error);
     return throwError('Une erreur s\'est produite, veuillez réessayer plus tard.');

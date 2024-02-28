@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { CancelRdvComponent } from './cancel-rdv.component';
+import { CancelRdvModalComponent } from './cancel-rdv-modal.component';
 
-describe('CancelRdvComponent', () => {
-  let component: CancelRdvComponent;
-  let fixture: ComponentFixture<CancelRdvComponent>;
+describe('CancelRdvModalComponent', () => {
+  let component: CancelRdvModalComponent;
+  let fixture: ComponentFixture<CancelRdvModalComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [CancelRdvComponent]
+      declarations: [CancelRdvModalComponent]
     })
     .compileComponents();
     
-    fixture = TestBed.createComponent(CancelRdvComponent);
+    fixture = TestBed.createComponent(CancelRdvModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

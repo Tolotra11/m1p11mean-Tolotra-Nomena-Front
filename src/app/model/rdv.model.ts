@@ -13,6 +13,10 @@ export interface RendezVous {
       commission: number;
       etat: number;
     };
+    client?:{
+      nom: string;
+      prenom:string;
+    },
     status: number;
     etat: number;
   }

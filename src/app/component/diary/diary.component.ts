@@ -5,8 +5,8 @@ import { RdvService } from '../../service/rdv/rdv.service';
 import { MatDialog } from '@angular/material/dialog';
 import { RendezVous } from '../../model/rdv.model';
 import timeGridPlugin from '@fullcalendar/timegrid';
-import { CancelRdvModalComponent } from '../cancel-rdv/cancel-rdv.component';
-import { AddUnavailabilityModalComponent } from '../add-unavaibility-modal/add-unavaibility-modal.component';
+import { CancelRdvModalComponent } from '../cancel-rdv-modal/cancel-rdv-modal.component';
+import { AddUnavailabilityModalComponent } from '../add-unavailability-modal/add-unavailability-modal.component';
 @Component({
   selector: 'app-diary',
   templateUrl: './diary.component.html',
