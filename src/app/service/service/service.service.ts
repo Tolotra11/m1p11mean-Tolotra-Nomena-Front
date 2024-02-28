@@ -16,22 +16,22 @@ export class ServiceService {
   }
 
   createService(service: any): Observable<any> {
-    return this.http.post(`${base_url}/managers/creerservice`, service);
+    return this.http.post(`${base_url}/managers/services`, service);
   }
 
   updateService(id: string, service: Service): Observable<any> {
-    return this.http.put(`${base_url}/services/updateservice/${id}`, service);
+    return this.http.put(`${base_url}/managers/services/${id}`, service);
   }
 
   deleteService(id: string): Observable<any> {
-    return this.http.put(`${base_url}/services/deleteservice/${id}`, {});
+    return this.http.put(`${base_url}/managers/services/${id}`, {});
   }
 
   getServiceDetails(id: string): Observable<any> {
-    return this.http.get(`${base_url}/detailservice/${id}`);
+    return this.http.get(`${base_url}/managers/services/${id}`);
   }
 
   searchService(query: any): Observable<any> {
-    return this.http.get(`${base_url}/services/rechercherservice`, { params: query });
+    return this.http.get(`${base_url}/managers/services/rechercherservice`, { params: query });
   }
 }
