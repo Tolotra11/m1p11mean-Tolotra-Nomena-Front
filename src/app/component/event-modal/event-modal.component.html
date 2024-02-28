@@ -1,0 +1,10 @@
+    <h2 mat-dialog-title>Détails de l'événement</h2>
+    <mat-dialog-content>
+        <p><b>Service: </b>{{data.event.title}}</p>
+        <p><b>Client: </b>{{data.event.extendedProps.rdv.client.nom+' '+data.event.extendedProps.rdv.client.prenom}}</p>
+        <p><b>Date: </b>{{formatter(data.event.extendedProps.rdv.dateheuredebut)}}</p>
+        <p>De {{formatTime(data.event.extendedProps.rdv.dateheuredebut)}} à {{formatTime(data.event.extendedProps.rdv.dateheurefin)}}</p>
+    </mat-dialog-content>
+    <mat-dialog-actions>
+        <button mat-button mat-dialog-close>Fermer</button>
+    </mat-dialog-actions>

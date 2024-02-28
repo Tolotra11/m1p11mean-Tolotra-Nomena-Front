@@ -36,6 +36,20 @@ import { ServiceListComponent } from './page/service-list/service-list.component
 import { ServiceDialogComponent } from './component/service-dialog/service-dialog.component';
 import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
 import { DepenseDialogComponent } from './component/depense-dialog/depense-dialog.component';
+import { HeaderEmployeComponent } from './component/header-employe/header-employe.component';
+import { DiaryComponent } from './component/diary/diary.component';
+import { AddUnavailabilityModalComponent } from './component/add-unavailability-modal/add-unavailability-modal.component';
+import { AppointmentEmployeComponent } from './component/appointment-employe/appointment-employe.component';
+import { EventModalComponent } from './component/event-modal/event-modal.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TaskComponent } from './component/task/task.component';
+import { DragDropModule } from '@angular/cdk/drag-drop';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { IndisponibiliteModalComponent } from './page/indisponibilte/indisponibilite-modal/indisponibilite-modal.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +66,15 @@ import { DepenseDialogComponent } from './component/depense-dialog/depense-dialo
     ServiceListComponent,
     ServiceDialogComponent,
     DepenseCrudComponent,
-    DepenseDialogComponent
+    DepenseDialogComponent,
+    HeaderEmployeComponent,
+    DiaryComponent,
+    AddUnavailabilityModalComponent,
+    AppointmentEmployeComponent,
+    EventModalComponent,
+    TaskComponent,
+    IndisponibiliteComponent,
+    IndisponibiliteModalComponent
   ],
   imports: [
     BrowserModule,
@@ -75,6 +97,12 @@ import { DepenseDialogComponent } from './component/depense-dialog/depense-dialo
     MatExpansionModule,
     ToastrModule.forRoot(),
     FullCalendarModule,
+    MatDialogModule,
+    DragDropModule,
+    MatProgressSpinnerModule,
+    NgxSkeletonLoaderModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [
     {

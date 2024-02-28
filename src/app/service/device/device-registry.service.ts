@@ -13,4 +13,8 @@ export class DeviceRegistryService {
   device_register(data:any): Observable<any> {
     return this.http.post(`${base_url}/devices`, data);
   }
+
+  device_delete(): Observable<any> {
+    return this.http.delete(`${base_url}/devices`);
+  }
 }

@@ -6,6 +6,10 @@ import { LoginClientComponent } from './page/login-client/login-client.component
 import { RegisterComponent } from './component/register/register.component';
 import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
 import { DepenseCrudComponent } from './component/depense-crud/depense-crud.component';
+import { DiaryComponent } from './component/diary/diary.component';
+import { AppointmentEmployeComponent } from './component/appointment-employe/appointment-employe.component';
+import { TaskComponent } from './component/task/task.component';
+import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
 
 const routes: Routes = [
   {
@@ -19,6 +23,15 @@ const routes: Routes = [
   },
   {
     path:'employe/login', component: LoginEmployeComponent
+  },
+  {
+    path: 'employe/rdv', component: AppointmentEmployeComponent
+  },
+  {
+    path: 'employe/task', component: TaskComponent
+  },
+  {
+    path: 'employe/horaire', component: IndisponibiliteComponent
   },
   {
     path:'client/login',component: LoginClientComponent
