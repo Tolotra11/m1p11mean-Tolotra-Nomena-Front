@@ -32,6 +32,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { ServiceListComponent } from './page/service-list/service-list.component';
+import { ServiceDialogComponent } from './component/service-dialog/service-dialog.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +46,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     HeaderManagerComponent,
     BottomComponent,
     AccueilManagerComponent,
-    HeaderOptionComponent
+    HeaderOptionComponent,
+    ServiceListComponent,
+    ServiceDialogComponent
   ],
   imports: [
     BrowserModule,
