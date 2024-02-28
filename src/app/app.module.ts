@@ -13,6 +13,8 @@ import { LoginManagerComponent } from './page/login-manager/login-manager.compon
 import { LoginEmployeComponent } from './page/login-employe/login-employe.component';
 import { LoginClientComponent } from './page/login-client/login-client.component';
 import { RegisterComponent } from './component/register/register.component';
+import { HeaderManagerComponent } from './component/header/header-manager/header-manager.component';
+import { BottomComponent } from './component/bottom/bottom.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { RegisterComponent } from './component/register/register.component';
     LoginManagerComponent,
     LoginEmployeComponent,
     LoginClientComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderManagerComponent,
+    BottomComponent
   ],
   imports: [
     BrowserModule,
