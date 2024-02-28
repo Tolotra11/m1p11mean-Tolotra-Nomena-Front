@@ -17,6 +17,21 @@ import { HeaderManagerComponent } from './component/header/header-manager/header
 import { BottomComponent } from './component/bottom/bottom.component';
 import { AccueilManagerComponent } from './page/accueil-manager/accueil-manager.component';
 import { HeaderOptionComponent } from './component/header-option/header-option.component';
+import { FullCalendarModule } from '@fullcalendar/angular';
+import { ToastrModule } from 'ngx-toastr';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTabsModule } from '@angular/material/tabs';
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu'
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -37,7 +52,21 @@ import { HeaderOptionComponent } from './component/header-option/header-option.c
     HttpClientModule,
     ReactiveFormsModule,
     FormsModule,
-    CommonModule
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatInputModule,
+    CommonModule,
+    MatTabsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatToolbarModule,
+    MatMenuModule,
+    MatButtonModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatExpansionModule,
+    ToastrModule.forRoot(),
+    FullCalendarModule,
   ],
   providers: [
     {
@@ -49,7 +78,8 @@ import { HeaderOptionComponent } from './component/header-option/header-option.c
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    provideAnimationsAsync()
   ],
   bootstrap: [AppComponent]
 })
