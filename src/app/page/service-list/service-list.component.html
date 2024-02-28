@@ -1,14 +1,26 @@
 <div class="row">
     <h1>Services</h1>
     <div class="header">
-      <button class="btn btn-success add-service-button" (click)="creerService()">Ajouter un service</button>
+      <p><button class="btn btn-success add-service-button" (click)="creerService()">Ajouter un service</button></p>
     </div>
+    
     <form>
-      <input [(ngModel)]="recherche.nom" name="nom" placeholder="Nom" (ngModelChange)="rechercherServices()">
-      <input [(ngModel)]="recherche.prix" name="prix" placeholder="Prix (min..max)" (ngModelChange)="rechercherServices()">
-      <input [(ngModel)]="recherche.delai" name="delai" placeholder="Delai (min:max)" (ngModelChange)="rechercherServices()">
-      <input [(ngModel)]="recherche.commission" name="commission" placeholder="Commission" (ngModelChange)="rechercherServices()">
-    </form>
+    <div class="form-row row">
+        <div class="form-group col-md-3">
+          <input  class="form-control" [(ngModel)]="recherche.nom" name="nom" placeholder="Nom" (ngModelChange)="rechercherServices()">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="number" class="form-control" [(ngModel)]="recherche.prix" name="prix" placeholder="Prix (min..max)" (ngModelChange)="rechercherServices()" step=".01">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="number" class="form-control" [(ngModel)]="recherche.delai" name="delai" placeholder="Delai (min:max)" (ngModelChange)="rechercherServices()" step=".01">
+        </div>
+        <div class="form-group col-md-3">
+          <input type="number" class="form-control" [(ngModel)]="recherche.commission" name="commission" placeholder="Commission" (ngModelChange)="rechercherServices()" step=".01">
+        </div>
+    </div>
+  </form>
+    
     
     <mat-table [dataSource]="dataSource">
   
@@ -19,17 +31,17 @@
     
       <ng-container matColumnDef="prix">
         <mat-header-cell *matHeaderCellDef> Prix </mat-header-cell>
-        <mat-cell *matCellDef="let service"> {{service.prix}} </mat-cell>
+        <mat-cell *matCellDef="let service"> {{service.prix}} MGA</mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="delai">
         <mat-header-cell *matHeaderCellDef> Delai </mat-header-cell>
-        <mat-cell *matCellDef="let service"> {{service.delai}} </mat-cell>
+        <mat-cell *matCellDef="let service"> {{service.delai}} Min</mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="commission">
         <mat-header-cell *matHeaderCellDef> Commission </mat-header-cell>
-        <mat-cell *matCellDef="let service"> {{service.commission}} </mat-cell>
+        <mat-cell *matCellDef="let service"> {{service.commission}} %</mat-cell>
       </ng-container>
     
       <ng-container matColumnDef="actions">

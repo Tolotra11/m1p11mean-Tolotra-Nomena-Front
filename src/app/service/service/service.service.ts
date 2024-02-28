@@ -24,7 +24,7 @@ export class ServiceService {
   }
 
   deleteService(id: string): Observable<any> {
-    return this.http.put(`${base_url}/managers/services/${id}`, {});
+    return this.http.delete(`${base_url}/managers/services/${id}`, {});
   }
 
   getServiceDetails(id: string): Observable<any> {
