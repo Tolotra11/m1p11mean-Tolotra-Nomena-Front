@@ -1,0 +1,79 @@
+<ngx-skeleton-loader *ngIf="loading" count="5" appearance="line"></ngx-skeleton-loader>
+<div class="card">
+    <div class="card-body">
+        <h3> choisir ses services préférés</h3>
+        <div class="form-row row">
+            <div class="form-group col-md-3">
+                <select class="form-control" (change)="onSelectService($event)">
+                    <option> Choisir un service</option>
+                    <option *ngFor="let item of services" [value]="item.id">
+                        {{ item.nom }}, dure: {{ item.delai }} mn, prix: {{ item.prix }}
+                      </option>	
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <button class="btn btn-primary" (click)="onAddPreferenceService()"> Ajouter</button>    
+            </div>            
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Service</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (listS of listePreferenceServices; track listS.idService; let i = $index) {
+                    <tr>
+                        <th scope="row">{{ i + 1 }}</th>	
+                        <td>{{ getServiceName(listS.idService) }}</td>
+                        <td><button class="btn btn-danger" (click)="onDeletePreferedService(listS.idService)" > delete </button></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <p></p>
+               
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body">
+        <h3> choisir son Employe prefere</h3>
+        <div class="form-row row">
+            <div class="form-group col-md-3">
+                <select class="form-control" (change)="onSelectEmploye($event)">
+                    <option> Choose a Emlpoye</option>
+                    <option *ngFor="let item of employes" [value]="item.id">
+                        Nom :{{ item.nom }}, Prenom: {{ item.prenom }} 
+                    </option>	
+                </select>
+            </div>
+            <div class="form-group col-md-3">
+                <button class="btn btn-primary" (click)="onAddPreferenceEmploye()"> Ajouter</button>
+            </div>            
+        </div>
+            <p></p>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Employe</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (listS of listPreferenceEmp; track listS.idEmploye; let i = $index) {
+                        <tr>
+                            <th scope="row">{{ i + 1 }}</th>	
+                            <td>{{ getEmployeName(listS.idEmploye)}}</td>
+                            <td><button class="btn btn-danger" (click)="onDeletePreferedEmp(listS.idEmploye)" > delete </button></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        
+    </div>
+</div>
+

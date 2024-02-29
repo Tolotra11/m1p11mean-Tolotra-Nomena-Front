@@ -15,6 +15,8 @@ import { StatistiqueComponent } from './component/statistique/statistique.compon
 import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
 import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
 import { ProfilComponent } from './component/profil/profil.component';
+import { ListComponent } from './component/list/list.component';
+import { PreferenceComponent } from './component/preference/preference.component';
 
 const routes: Routes = [
   {
@@ -54,7 +56,14 @@ const routes: Routes = [
     path:'client/login',component: LoginClientComponent
   },{
     path:'client/register',component: RegisterComponent
-  },{
+  },
+  {
+    path:'client/list',component: ListComponent
+  },
+  {
+    path:'client/preference',component: PreferenceComponent
+  }
+  ,{
     path:'Unauthorized',component: UnauthorizedComponent
   }
 ];

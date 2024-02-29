@@ -4,8 +4,11 @@
     @if(getRoleStatus() == "30"){
       <app-header-manager/>
     }
-    @if(getRoleStatus()=="20"){
+    @else if(getRoleStatus()=="20"){
       <app-header-employe/>
+    }
+    @else{
+      <app-client-header/>
     }
     <div class="body-wrapper">
       <app-header-option/>
