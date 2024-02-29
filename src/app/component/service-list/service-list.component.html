@@ -1,0 +1,48 @@
+<div class="container">
+    <h1>Services</h1>
+    <div class="header">
+      <button class="btn btn-success add-service-button" (click)="creerService()">Ajouter un service</button>
+    </div>
+    <form>
+      <input [(ngModel)]="recherche.nom" name="nom" placeholder="Nom" (ngModelChange)="rechercherServices()">
+      <input [(ngModel)]="recherche.prix" name="prix" placeholder="Prix (min..max)" (ngModelChange)="rechercherServices()">
+      <input [(ngModel)]="recherche.delai" name="delai" placeholder="Delai (min:max)" (ngModelChange)="rechercherServices()">
+      <input [(ngModel)]="recherche.commission" name="commission" placeholder="Commission" (ngModelChange)="rechercherServices()">
+    </form>
+    
+    <mat-table [dataSource]="dataSource">
+  
+      <ng-container matColumnDef="nom">
+        <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+        <mat-cell *matCellDef="let service"> {{service.nom}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="prix">
+        <mat-header-cell *matHeaderCellDef> Prix </mat-header-cell>
+        <mat-cell *matCellDef="let service"> {{service.prix}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="delai">
+        <mat-header-cell *matHeaderCellDef> Delai </mat-header-cell>
+        <mat-cell *matCellDef="let service"> {{service.delai}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="commission">
+        <mat-header-cell *matHeaderCellDef> Commission </mat-header-cell>
+        <mat-cell *matCellDef="let service"> {{service.commission}} </mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+        <mat-cell *matCellDef="let service"> 
+          <button class="btn btn-primary" (click)="openModalService(service)">Modifier</button>
+          <button class="btn btn-danger" (click)="supprimerService(service)">Supprimer</button>
+        </mat-cell>
+      </ng-container>
+    
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[1, 2, 10]" showFirstLastButtons></mat-paginator>
+    
+  </div>

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "m1p11mean-Tolotra-Nomena-Front": {
+    "Mean_mitambatra_frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -23,7 +23,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/m1p11mean-tolotra-nomena-front",
+            "outputPath": "dist/mean-mitambatra-frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -35,6 +35,7 @@
               "src/assets"
             ],
             "styles": [
+              "src/custom-theme.scss",
               "src/styles.css"
             ],
             "scripts": []
@@ -67,10 +68,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "m1p11mean-Tolotra-Nomena-Front:build:production"
+              "buildTarget": "Mean_mitambatra_frontend:build:production"
             },
             "development": {
-              "buildTarget": "m1p11mean-Tolotra-Nomena-Front:build:development"
+              "buildTarget": "Mean_mitambatra_frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +79,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "m1p11mean-Tolotra-Nomena-Front:build"
+            "buildTarget": "Mean_mitambatra_frontend:build"
           }
         },
         "test": {
@@ -101,5 +102,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "789e1504-26e9-4e04-b02a-3eea5a92d412"
   }
 }
