@@ -1,0 +1,117 @@
+<h2>Gestion offres spéciales</h2>
+<form class="mb-6">
+  <div class="form-row row">
+    <div class="form-group col-md-3">
+      <label for="idService">Service:</label>
+      <select [(ngModel)]="idService" name="idService" class="form-control" (change)="searchOffres()">
+        <option value="">Sélectionnez un service</option>
+        <option *ngFor="let service of services" [value]="service.id">{{ service.nom }}</option>
+      </select>
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prenom">reduction:</label>
+      <input
+        type="number"
+        step=".01"
+        [(ngModel)]="reduction"
+        name="reduction"
+        class="form-control"
+        (keyup)="searchOffres()"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prenom">Date debut:</label>
+      <input
+        type="date"
+        [(ngModel)]="dateDebut"
+        name="dateDebut"
+        class="form-control"
+        (ngModelChange)="searchOffres()"
+      />
+    </div>
+    <div class="form-group col-md-3">
+        <label for="prenom">Date fin:</label>
+        <input
+          type="date"
+          [(ngModel)]="dateFin"
+          name="dateFin"
+          class="form-control"
+          (ngModelChange)="searchOffres()"
+        />
+      </div>
+    <!-- Ajoutez d'autres champs de recherche au besoin -->
+  </div>
+</form>
+<button class="btn btn-primary" (click)="addOffre()">
+  <span class="fa fa-plus-circle mr-1"></span> Ajouter
+</button>
+<div *ngIf="offreSpeciales.length > 0; else noUsers" class="container">
+  
+
+  <!-- Tableau des utilisateurs -->
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>reduction</th>
+          <th>date début</th>
+          <th>date fin</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let offre of offreSpeciales">
+          <td>{{ offre.service.nom }}</td>
+          <td>{{ offre.reduction }} %</td>
+          <td>{{ formatteDateHeureString(offre.dateDebut) }}</td>
+          <td>{{ formatteDateHeureString(offre.dateFin) }}</td>
+
+          <!-- <td>
+            <span class="mr-1">
+              <button class="btn btn-secondary" (click)="editUserModal(user)">
+                <span class="fa fa-edit"></span>
+                Modifier
+              </button>
+            </span>
+          </td> -->
+          <td>
+            <span class="mr-1">
+              <button class="btn btn-danger" (click)="deleteOffre(offre)">
+                <span class="fa fa-trash"></span>
+                Supprimer
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="mb-3">
+    <button style="margin-right: 15px;margin-top: 20px;"
+      class="btn btn-secondary mr-1"
+      (click)="prevPage()"
+      [disabled]="page === 0"
+    >
+      Page précédente
+    </button>
+    <span class="mr-1"></span>
+    <button style="margin-top: 20px;"
+      class="btn btn-secondary"
+      (click)="nextPage()"
+      [disabled]="offreSpeciales.length < limit"
+    >
+      Page suivante
+    </button>
+  </div>
+</div>
+
+<ng-template #noUsers>
+  <p>Aucun utilisateur trouvé.</p>
+</ng-template>
+
+<div *ngIf="isLoading" class="loader-overlay">
+  <div class="loader"></div>
+</div>

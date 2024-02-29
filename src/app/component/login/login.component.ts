@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
+      this.checkLogin();
       this.loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: [
@@ -43,18 +44,17 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.loginForm.value,this.role).subscribe(
       {
         next:(res) => {
-          // Handle successful login, e.g., store token in local storage
-          console.log('Login successful:', res.token);
           this.authService.addAuthToken(res.token);
           this.authService.addRole(this.role+"");
           if(this.role == 30){
-            this.router.navigate(['/accueilAdmin']);
+            this.router.navigate(['/manager/dashboard']);
           }
           else if(this.role == 10){
               this.push.requestPermission();
+              this.router.navigate(['/client/login']);
           }
           else{
-            this.router.navigate(['/']);
+            this.router.navigate(['/employe/rdv']);
           }
         },
         error: (error) => {
@@ -63,5 +63,20 @@ export class LoginComponent implements OnInit{
         }
       }
     );
+  }
+
+  checkLogin(){
+    if(this.authService.isLoggedIn()){
+        const role = this.authService.getRole();
+        if(this.role == 30){
+          this.router.navigate(['/manager/dashboard']);
+        }
+        else if(this.role == 10){
+            this.router.navigate(['/client/login']);
+        }
+        else{
+          this.router.navigate(['/employe/rdv']);
+        }
+    }
   }
 }

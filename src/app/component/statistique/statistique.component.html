@@ -1,0 +1,163 @@
+<mat-tab-group class="tab-container" animationDuration="0ms">
+    <mat-tab label="Temps moyen de travail">
+        <ng-template matTabContent>
+            <div class="tab-content">
+                <div class="filter-container form-row row">
+                    <div class="form-group col-md-3">
+                        <label for="annee">Filtrer par année :</label>
+                        <select class="form-control" id="annee" [(ngModel)]="selectedYear" (change)="filtrerParAnneeTempsMoyen()">
+                            <option *ngFor="let annee of annees" [value]="annee">{{ annee }}</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label for="employe">Filtrer par employé :</label>
+                        <select class="form-control" id="employe" [(ngModel)]="selectedEmployee"
+                            (change)="filtrerParEmploye()">
+                            <option  [value]="undefined">Tous</option>
+                            <option *ngFor="let employe of employes" [value]="employe.id">{{ employe.nom }} {{employe.prenom}}</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="chart">
+                    <apx-chart #chartTempsMoyen [series]="charttempsmoyen.series!" [chart]="charttempsmoyen.chart!"
+                        [dataLabels]="charttempsmoyen.dataLabels!" [plotOptions]="charttempsmoyen.plotOptions!"
+                        [yaxis]="charttempsmoyen.yaxis!" [legend]="charttempsmoyen.legend!"
+                        [fill]="charttempsmoyen.fill!" [stroke]="charttempsmoyen.stroke!"
+                        [tooltip]="charttempsmoyen.tooltip!" [xaxis]="charttempsmoyen.xaxis!"></apx-chart>
+                </div>
+            </div>
+        </ng-template>
+    </mat-tab>
+    <mat-tab label="Nombre de réservation">
+        <ng-template matTabContent>
+            <div class="tab-content form-row row">
+                <div class="form-group col-md-3">
+                    <div class="filter-container">
+                    <label for="annee">Filtrer par année :</label>
+                    <select class="form-control" id="annee" [(ngModel)]="selectedYear_reservation" (change)="filtrerParAnneeReservation()">
+                        <option *ngFor="let annee of annees" [value]="annee">{{ annee }}</option>
+                    </select>
+                    </div>
+                </div>
+                
+
+                <div id="chart">
+                    <apx-chart #chartNbReservation [series]="chartnbreservation.series!"
+                        [chart]="chartnbreservation.chart!" [dataLabels]="chartnbreservation.dataLabels!"
+                        [plotOptions]="chartnbreservation.plotOptions!" [xaxis]="chartnbreservation.xaxis!"></apx-chart>
+                </div>
+
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let mois of mois">
+                        <mat-expansion-panel-header (click)="afficherDetails(mois)">
+                            <mat-panel-title>
+                                {{ mois }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Total: {{ reservations?.[mois]?.total || 0 }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <table class="table" *ngIf="moisSelectionne === mois">
+                            <thead>
+                                <tr>
+                                    <th>Jour</th>
+                                    <th>Réservations</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let jour of reservations[mois]?.jours">
+                                    <td>{{ jour?.jour }}</td>
+                                    <td>{{ jour?.reservations || 0 }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </ng-template>
+    </mat-tab>
+
+
+    <mat-tab label="Chiffre d'affaire">
+        <ng-template matTabContent>
+            <div class="tab-content form-row row">
+                <div class="form-group col-md-3">
+                    <div class="filter-container">
+                    <label for="annee">Filtrer par année :</label>
+                    <select class="form-control" id="annee" [(ngModel)]="selectedYear_chiffreaffaire" (change)="filtrerParAnneeChiffreAffaire()">
+                        <option *ngFor="let annee of annees" [value]="annee">{{ annee }}</option>
+                    </select>
+                    </div>
+                </div>
+                
+                <div id="chart">
+                    <apx-chart
+                      [series]="chartChiffreAffaire.series!"
+                      [chart]="chartChiffreAffaire.chart!"
+                      [dataLabels]="chartChiffreAffaire.dataLabels!"
+                      [plotOptions]="chartChiffreAffaire.plotOptions!"
+                      [yaxis]="chartChiffreAffaire.yaxis!"
+                      [xaxis]="chartChiffreAffaire.xaxis!"
+                      [fill]="chartChiffreAffaire.fill!"
+                      [title]="chartChiffreAffaire.title!"
+                    ></apx-chart>
+                  </div>
+                <mat-accordion>
+                    <mat-expansion-panel *ngFor="let mois of mois">
+                        <mat-expansion-panel-header (click)="afficherDetailsCA(mois)">
+                            <mat-panel-title>
+                                {{ mois }}
+                            </mat-panel-title>
+                            <mat-panel-description>
+                                Total: {{ chiffre_affaires?.[mois]?.total || 0 }}
+                            </mat-panel-description>
+                        </mat-expansion-panel-header>
+                        <table class="table" *ngIf="mois_chiffre_affaire === mois">
+                            <thead>
+                                <tr>
+                                    <th>Jour</th>
+                                    <th>Chiffre d'affaire</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let jour of chiffre_affaires?.[mois]?.jours">
+                                    <td>{{ jour?.jour || 0 }}</td>
+                                    <td>{{ jour?.chiffre_affaires || 0 }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </mat-expansion-panel>
+                </mat-accordion>
+            </div>
+        </ng-template>
+    </mat-tab>
+
+    <mat-tab label="Bénéfice">
+        <ng-template matTabContent>
+            <div class="tab-content form-row row">
+                <div class="form-group col-md-3">
+                    <div class="filter-container">
+                    <label for="annee">Filtrer par année :</label>
+                    <select class="form-control" id="annee" [(ngModel)]="selectedYear_benefice" (change)="filtrerParAnneeBenefice()">
+                        <option *ngFor="let annee of annees" [value]="annee">{{ annee }}</option>
+                    </select>
+                    </div>
+                </div>
+                
+                <div id="chart">
+                    <apx-chart
+                      [series]="chartBenefice.series!"
+                      [chart]="chartBenefice.chart!"
+                      [dataLabels]="chartBenefice.dataLabels!"
+                      [plotOptions]="chartBenefice.plotOptions!"
+                      [yaxis]="chartBenefice.yaxis!"
+                      [xaxis]="chartBenefice.xaxis!"
+                      [legend]="chartBenefice.legend!"
+                      [colors]="chartBenefice.colors!"
+                      [grid]="chartBenefice.grid!"
+                    ></apx-chart>
+                  </div>
+            </div>
+        </ng-template>
+    </mat-tab>
+</mat-tab-group>

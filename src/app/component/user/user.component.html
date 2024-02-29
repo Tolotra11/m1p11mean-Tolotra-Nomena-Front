@@ -1,0 +1,109 @@
+<h2>Gestion du personnel</h2>
+<form class="mb-6">
+  <div class="form-row row">
+    <div class="form-group col-md-3">
+      <label for="nom">Nom:</label>
+      <input
+        type="text"
+        [(ngModel)]="nom"
+        name="nom"
+        class="form-control"
+        placeholder="Entrez le nom"
+        (keyup)="searchUsers()"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prenom">Prénom:</label>
+      <input
+        type="text"
+        [(ngModel)]="prenom"
+        name="prenom"
+        class="form-control"
+        placeholder="Entrez le prénom"
+        (keyup)="searchUsers()"
+      />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prenom">Email:</label>
+      <input
+        type="text"
+        [(ngModel)]="mail"
+        name="mail"
+        class="form-control"
+        placeholder="Entrez l'adresse mail"
+        (keyup)="searchUsers()"
+      />
+    </div>
+    <!-- Ajoutez d'autres champs de recherche au besoin -->
+  </div>
+</form>
+
+<div *ngIf="users.length > 0; else noUsers" class="container">
+  <button class="btn btn-primary" (click)="addUser()">
+    <span class="fa fa-plus-circle mr-1"></span> Ajouter
+  </button>
+
+  <!-- Tableau des utilisateurs -->
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>Prénom</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{ user.nom }}</td>
+          <td>{{ user.prenom }}</td>
+          <td>{{ user.mail }}</td>
+          <td>
+            <span class="mr-1">
+              <button class="btn btn-secondary" (click)="editUserModal(user)">
+                <span class="fa fa-edit"></span>
+                Modifier
+              </button>
+            </span>
+          </td>
+          <td>
+            <span class="mr-1">
+              <button class="btn btn-danger" (click)="deleteUser(user)">
+                <span class="fa fa-trash"></span>
+                Supprimer
+              </button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Pagination -->
+  <div class="mb-3">
+    <button style="margin-right: 15px;margin-top: 20px;"
+      class="btn btn-secondary mr-1"
+      (click)="prevPage()"
+      [disabled]="page === 0"
+    >
+      Page précédente
+    </button>
+    <span class="mr-1"></span>
+    <button style="margin-top: 20px;"
+      class="btn btn-secondary"
+      (click)="nextPage()"
+      [disabled]="users.length < limit"
+    >
+      Page suivante
+    </button>
+  </div>
+</div>
+
+<ng-template #noUsers>
+  <p>Aucun utilisateur trouvé.</p>
+</ng-template>
+
+<div *ngIf="isLoading" class="loader-overlay">
+  <div class="loader"></div>
+</div>

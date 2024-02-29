@@ -28,8 +28,7 @@ import { AuthService } from '../../auth/auth.service';
                 mdp: [
                   '',
                   [
-                    Validators.required,
-                    Validators.minLength(8)
+                    Validators.required
                   ]
                 ],
                 confirmMdp: ['',[Validators.required]]

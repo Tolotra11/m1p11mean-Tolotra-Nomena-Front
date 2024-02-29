@@ -1,0 +1,26 @@
+<h1 mat-dialog-title>{{ data.isNew ? 'Ajouter un service' : 'Modifier le service' }}</h1>
+<div mat-dialog-content>
+        <mat-form-field appearance="fill">
+            <mat-label>Nom</mat-label>
+            <input matInput [(ngModel)]="data.service.nom">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Prix</mat-label>
+            <input matInput [(ngModel)]="data.service.prix">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Delai</mat-label>
+            <input matInput type="number" [(ngModel)]="data.service.delai" step=".01">
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Commission</mat-label>
+            <input type="number" matInput [(ngModel)]="data.service.commission" step=".01">
+        </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+        <button mat-button (click)="onNoClick()">Annuler</button>
+        <button mat-button (click)="data.isNew ? ajouterService() : modifierService()">Enregistrer</button>
+        @if(error){
+            <div>{{error}}</div>
+        }
+</div>

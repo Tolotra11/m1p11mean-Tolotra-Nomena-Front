@@ -1,0 +1,15 @@
+<div *ngIf="isLoading" class="text-center">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Chargement...</span>
+    </div>
+  </div>
+<h2 mat-dialog-title>Confirmation de suppression</h2>
+<mat-dialog-content>
+    <p>
+        Voulez-vous vraiment supprimer l'utilisateur {{ user.nom }}
+        {{ user.prenom }}?
+    </p>
+<mat-dialog-content>
+    <button class="btn btn-danger m-1" (click)="deleteUser()">Oui</button>
+    <button class="btn btn-primary" (click)="onClose()">Non</button>
+</mat-dialog-content>
