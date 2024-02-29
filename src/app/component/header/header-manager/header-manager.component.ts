@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   styleUrl: './header-manager.component.css'
 })
 export class HeaderManagerComponent {
-  private forceRerender: boolean = false;
   constructor(private authService: AuthService,  private router: Router){}
   logout(){
     this.authService.logout();

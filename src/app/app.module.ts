@@ -62,7 +62,8 @@ import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/d
 import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
 import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilModalComponent } from './component/profil/profil-modal/profil-modal.component';
-
+import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
+import { EmployeLayoutComponent } from './layout/employe-layout/employe-layout.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -97,7 +98,9 @@ import { ProfilModalComponent } from './component/profil/profil-modal/profil-mod
     DeleteOffModalComponent,
     UnauthorizedComponent,
     ProfilComponent,
-    ProfilModalComponent
+    ProfilModalComponent,
+    ManagerLayoutComponent,
+    EmployeLayoutComponent
   ],
   imports: [
     BrowserModule,

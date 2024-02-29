@@ -47,11 +47,11 @@ export class LoginComponent implements OnInit{
           this.authService.addAuthToken(res.token);
           this.authService.addRole(this.role+"");
           if(this.role == 30){
-            this.router.navigate(['/manager/accueil']);
+            this.router.navigate(['/manager/dashboard']);
           }
           else if(this.role == 10){
               this.push.requestPermission();
-              this.router.navigate(['/employe/login']);
+              this.router.navigate(['/client/login']);
           }
           else{
             this.router.navigate(['/employe/rdv']);
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['/manager/dashboard']);
         }
         else if(this.role == 10){
-            this.router.navigate(['/employe/login']);
+            this.router.navigate(['/client/login']);
         }
         else{
           this.router.navigate(['/employe/rdv']);
