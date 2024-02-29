@@ -10,11 +10,11 @@
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Delai</mat-label>
-            <input matInput [(ngModel)]="data.service.delai">
+            <input matInput type="number" [(ngModel)]="data.service.delai" step=".01">
         </mat-form-field>
         <mat-form-field appearance="fill">
             <mat-label>Commission</mat-label>
-            <input matInput [(ngModel)]="data.service.commission">
+            <input type="number" matInput [(ngModel)]="data.service.commission" step=".01">
         </mat-form-field>
         </div>
         <div mat-dialog-actions>

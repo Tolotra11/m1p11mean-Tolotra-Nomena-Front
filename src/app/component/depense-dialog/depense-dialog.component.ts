@@ -43,7 +43,7 @@ export interface DialogData {
     }
   
     modifierDepense() {
-      this.depenseService.updateDepense(this.data.depense._id,this.data.depense).subscribe(
+      this.depenseService.updateDepense(this.data.depense.id,this.data.depense).subscribe(
         (response) => {
           console.log('Dépense mis à jour avec succès', response);
           this.dialogRef.close();

@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { DepenseService } from '../../service/depense/depense.service';
 import { DepenseDialogComponent } from '../depense-dialog/depense-dialog.component';
+import { formatDateString, formatHeure } from '../../utils/utils';
 
 @Component({
   selector: 'app-depense-crud',
@@ -11,6 +12,7 @@ import { DepenseDialogComponent } from '../depense-dialog/depense-dialog.compone
   styleUrl: './depense-crud.component.css'
 })
 export class DepenseCrudComponent implements OnInit {
+  formatterDate = formatDateString;
   depenses: any[] = [];
   depense_detail: any;
   recherche = { libelle: '', date: '', depense: ''};
