@@ -54,6 +54,11 @@ import { UserComponent } from './component/user/user.component';
 import { UserAddModalComponent } from './component/user/user-add-modal/user-add-modal.component';
 import { UserEditModalComponent } from './component/user/user-edit-modal/user-edit-modal.component';
 import { UserDeleteModalComponent } from './component/user/user-delete-modal/user-delete-modal.component';
+import { StatistiqueComponent } from './component/statistique/statistique.component';
+import { NgApexchartsModule } from 'ng-apexcharts';
+import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
+import { AddOffSpecialModalComponent } from './page/offre-special/add-off-special-modal/add-off-special-modal.component';
+import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/delete-off-modal.component';
 
 @NgModule({
   declarations: [
@@ -82,7 +87,11 @@ import { UserDeleteModalComponent } from './component/user/user-delete-modal/use
     UserComponent,
     UserAddModalComponent,
     UserEditModalComponent,
-    UserDeleteModalComponent
+    UserDeleteModalComponent,
+    StatistiqueComponent,
+    OffreSpecialComponent,
+    AddOffSpecialModalComponent,
+    DeleteOffModalComponent
   ],
   imports: [
     BrowserModule,
@@ -110,7 +119,8 @@ import { UserDeleteModalComponent } from './component/user/user-delete-modal/use
     MatProgressSpinnerModule,
     NgxSkeletonLoaderModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    NgApexchartsModule
   ],
   providers: [
     {

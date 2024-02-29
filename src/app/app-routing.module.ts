@@ -11,6 +11,8 @@ import { AppointmentEmployeComponent } from './component/appointment-employe/app
 import { TaskComponent } from './component/task/task.component';
 import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite.component';
 import { UserComponent } from './component/user/user.component';
+import { StatistiqueComponent } from './component/statistique/statistique.component';
+import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
 
 const routes: Routes = [
   {
@@ -24,6 +26,12 @@ const routes: Routes = [
   },
   {
     path:'manager/user',component: UserComponent
+  },
+  {
+    path:'manager/dashboard',component: StatistiqueComponent
+  },
+  {
+    path:'manager/offreSpecial',component: OffreSpecialComponent
   },
   {
     path:'employe/login', component: LoginEmployeComponent

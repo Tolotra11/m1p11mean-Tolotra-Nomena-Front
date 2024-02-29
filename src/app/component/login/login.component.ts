@@ -43,8 +43,6 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.loginForm.value,this.role).subscribe(
       {
         next:(res) => {
-          // Handle successful login, e.g., store token in local storage
-          console.log('Login successful:', res.token);
           this.authService.addAuthToken(res.token);
           this.authService.addRole(this.role+"");
           if(this.role == 30){
@@ -52,9 +50,10 @@ export class LoginComponent implements OnInit{
           }
           else if(this.role == 10){
               this.push.requestPermission();
+              this.router.navigate(['/employe/login']);
           }
           else{
-            this.router.navigate(['/employe/rdv']);
+            this.router.navigate(['/employe/dashboard']);
           }
         },
         error: (error) => {

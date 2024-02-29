@@ -1,0 +1,18 @@
+<h2 mat-dialog-title>Ajout offre spécial</h2>
+<mat-dialog-content>
+    <label for="idService">Service:</label>
+      <select [(ngModel)]="idService" name="idService" class="form-control" >
+        <option value="">Sélectionnez un service</option>
+        <option *ngFor="let service of data.event" [value]="service.id">{{ service.nom }}</option>
+      </select>
+    <label>Reduction</label>
+    <input type="number" [(ngModel)]="reduction" step=".01" class="form-control"/>
+    <label>Date debut</label>
+    <input type="date" [(ngModel)]="dateDebut" class="form-control"/>
+    <label>Date fin</label>
+    <input type="date" [(ngModel)]="dateFin" class="form-control"/>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button mat-dialog-close class="btn btn-warning">Fermer</button>
+    <button mat-button class="btn btn-success" (click)="save()">Enregistrer</button>
+</mat-dialog-actions>

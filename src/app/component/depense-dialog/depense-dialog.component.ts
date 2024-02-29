@@ -1,6 +1,7 @@
 import { Component, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DepenseService } from '../../service/depense/depense.service';
+import { formatDateString } from '../../utils/utils';
 
 
 export interface DialogData {
@@ -19,7 +20,7 @@ export interface DialogData {
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Date</mat-label>
-          <input matInput [(ngModel)]="data.depense.date" type="date">
+          <input matInput [(ngModel)]="data.depense.date" type="datetime-local">
         </mat-form-field>
         <mat-form-field appearance="fill">
           <mat-label>Coût</mat-label>
@@ -33,7 +34,7 @@ export interface DialogData {
     `,
   })
   export class DepenseDialogComponent {
-  
+    formattedDate = formatDateString;
     constructor(private depenseService: DepenseService,
       public dialogRef: MatDialogRef<DepenseDialogComponent>,
       @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
@@ -41,7 +42,7 @@ export interface DialogData {
     onNoClick(): void {
       this.dialogRef.close();
     }
-  
+    
     modifierDepense() {
       this.depenseService.updateDepense(this.data.depense.id,this.data.depense).subscribe(
         (response) => {

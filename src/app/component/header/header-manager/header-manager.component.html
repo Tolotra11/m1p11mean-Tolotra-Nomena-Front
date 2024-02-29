@@ -18,7 +18,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" aria-expanded="false">
+              <a class="sidebar-link" aria-expanded="false" routerLink="/manager/dashboard">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -26,9 +26,17 @@
               </a>
             </li>
             <li class="sidebar-item">
+              <a class="sidebar-link" aria-expanded="false" routerLink="/manager/offreSpecial">
+                <span>
+                  <i class="ti ti-calendar"></i>
+                </span>
+                <span class="hide-menu">Offre spéciales</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
                 <a class="sidebar-link" aria-expanded="false" routerLink="/manager/user">
                   <span>
-                    <i class="ti ti-layout-dashboard"></i>
+                    <i class="ti ti-user"></i>
                   </span>
                   <span class="hide-menu">Employes</span>
                 </a>
@@ -36,7 +44,7 @@
             <li class="sidebar-item">
                 <a class="sidebar-link" aria-expanded="false" routerLink="/manager/accueil">
                   <span>
-                    <i class="ti ti-layout-dashboard"></i>
+                    <i class="ti ti-layout-grid"></i>
                   </span>
                   <span class="hide-menu">Services</span>
                 </a>
@@ -44,7 +52,7 @@
             <li class="sidebar-item">
                 <a class="sidebar-link" aria-expanded="false" routerLink="/manager/depense">
                   <span>
-                    <i class="ti ti-layout-dashboard"></i>
+                    <i class="ti ti-layout-grid"></i>
                   </span>
                   <span class="hide-menu">Depenses</span>
                 </a>
@@ -52,7 +60,7 @@
             <li class="sidebar-item">
               <a class="sidebar-link" aria-expanded="false" (click)="logout()" >
                 <span>
-                  <i class="ti ti-layout-dashboard"></i>
+                  <i class="ti ti-logout"></i>
                 </span>
                 <span class="hide-menu">Deconnexion</span>
               </a>
