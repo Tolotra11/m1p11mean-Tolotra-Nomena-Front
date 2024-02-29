@@ -61,6 +61,7 @@ import { AddOffSpecialModalComponent } from './page/offre-special/add-off-specia
 import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/delete-off-modal.component';
 import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
 import { ProfilComponent } from './component/profil/profil.component';
+import { ProfilModalComponent } from './component/profil/profil-modal/profil-modal.component';
 
 @NgModule({
   declarations: [
@@ -95,7 +96,8 @@ import { ProfilComponent } from './component/profil/profil.component';
     AddOffSpecialModalComponent,
     DeleteOffModalComponent,
     UnauthorizedComponent,
-    ProfilComponent
+    ProfilComponent,
+    ProfilModalComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@ import { Component, Inject } from '@angular/core';
 import { formatDateString, formatHeure } from '../../../utils/utils';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { RdvService } from '../../../service/rdv/rdv.service';
-import { error } from 'jquery';
+
 
 @Component({
   selector: 'app-indisponibilite-modal',

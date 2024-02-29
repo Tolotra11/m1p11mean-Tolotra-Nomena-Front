@@ -43,6 +43,8 @@ export class UserService {
     return this.http.put<User>(`${base_url}/managers/users/${userId}`, updatedUser);
   }
 
+  
+
   // Méthode pour supprimer un utilisateur
   deleteUser(userId: string): Observable<any> {
     return this.http.delete<any>(`${base_url}/managers/users/${userId}`);

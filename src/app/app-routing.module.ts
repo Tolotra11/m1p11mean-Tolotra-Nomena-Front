@@ -14,6 +14,7 @@ import { UserComponent } from './component/user/user.component';
 import { StatistiqueComponent } from './component/statistique/statistique.component';
 import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
 import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
+import { ProfilComponent } from './component/profil/profil.component';
 
 const routes: Routes = [
   {
@@ -45,6 +46,9 @@ const routes: Routes = [
   },
   {
     path: 'employe/horaire', component: IndisponibiliteComponent
+  },
+  {
+    path:'profil',component: ProfilComponent
   },
   {
     path:'client/login',component: LoginClientComponent

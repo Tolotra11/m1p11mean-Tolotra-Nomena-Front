@@ -1,1 +1,15 @@
-<p>profil works!</p>
+@if(loading){
+    <ngx-skeleton-loader count="5" appearance="line" />
+}
+@else{
+    <div class="card">
+        <div class="card-body">
+          <h2 class="card-title fw-semibold mb-4">Profil</h2>
+          <h5 class="mb-0">{{user.nom}}  {{user.prenom}}</h5>
+          <br/>
+          <p>{{user.mail}}</p>
+          <br/>
+          <button class="btn btn-primary" (click)="editUserModal()">Modifier</button>
+        </div>
+    </div>
+}
