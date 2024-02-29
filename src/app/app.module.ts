@@ -64,6 +64,9 @@ import { ProfilComponent } from './component/profil/profil.component';
 import { ProfilModalComponent } from './component/profil/profil-modal/profil-modal.component';
 import { ManagerLayoutComponent } from './layout/manager-layout/manager-layout.component';
 import { EmployeLayoutComponent } from './layout/employe-layout/employe-layout.component';
+import { PreferenceComponent } from './component/preference/preference.component';
+import { ListeComponent } from './component/liste/liste.component';
+import { ListComponent } from './component/list/list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -100,7 +103,10 @@ import { EmployeLayoutComponent } from './layout/employe-layout/employe-layout.c
     ProfilComponent,
     ProfilModalComponent,
     ManagerLayoutComponent,
-    EmployeLayoutComponent
+    EmployeLayoutComponent,
+    PreferenceComponent,
+    ListeComponent,
+    ListComponent
   ],
   imports: [
     BrowserModule,

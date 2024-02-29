@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit{
           }
           else if(this.role == 10){
               this.push.requestPermission();
-              this.router.navigate(['/client/login']);
+              this.router.navigate(['/client/list']);
           }
           else{
             this.router.navigate(['/employe/rdv']);
@@ -72,7 +72,7 @@ export class LoginComponent implements OnInit{
           this.router.navigate(['/manager/dashboard']);
         }
         else if(this.role == 10){
-            this.router.navigate(['/client/login']);
+            this.router.navigate(['/client/list']);
         }
         else{
           this.router.navigate(['/employe/rdv']);

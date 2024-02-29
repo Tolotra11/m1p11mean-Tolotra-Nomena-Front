@@ -1,0 +1,58 @@
+
+<h1>Prendre un rendez vous</h1>
+<div class="card">
+    <div class="card-body">
+        <h3> choisir le service</h3>
+        <div class="form-row row">
+        <div class="form-group col-md-3">
+        <select class="form-control" (change)="onSelectService($event)">
+            <option> Choisir un service</option>
+            <option *ngFor="let item of services" [value]="item.id">
+                {{ item.nom }}, {{ item.delai }} mn, prix: {{ item.prix }} MGA
+              </option>
+        </select>
+        </div>
+        <div class="form-group col-md-3">
+            <input class="form-control" type="text" id="dtp"  (ngModelChange)="onDateChange($event)" placeholder="Select Date">
+        </div>
+        <div class="form-group col-md-3">
+            <button class="btn btn-primary" (click)="onSubmitRdv()"> Confirmer</button>
+        </div>
+        </div>
+        <br/>
+        <h3> choisir un personnel pour s'occuper de vous</h3>
+        <span>*Vous devez choisir une date et un service avant de pouvoir selectionner un personnel</span>
+        <div class="form-row row">
+            <div class="form-group col-md-3">
+                <select class="form-control" (change)="onSelectEmp($event)" [disabled]="personnelDisabled">
+                    <option> Choisir un personnel</option>
+                    <option *ngFor="let emp of employes" [value]="emp.id">
+                        {{emp.nom}} {{emp.prenom}}
+                    </option>
+                </select>
+            </div>
+            <br/>
+           
+        </div>
+        <br/>
+        <h3>Choisir méthode de paiement</h3>
+        <div class="row">
+            <label>
+                <input type="radio" name="paiement" value="1" [(ngModel)]="paiement"> Mvola
+            </label>
+            <label>
+                <input type="radio" name="paiement" value="2" [(ngModel)]="paiement"> Orange Money
+            </label>
+            <label>
+                <input type="radio" name="paiement" value="3" [(ngModel)]="paiement"> Airtel Money
+            </label>
+        </div>    
+        <div class="form-group" style="margin-top: 20px;">
+            <button class="btn btn-success" (click)="onAdd()" > Confirmer le rendez vous</button>
+        </div>
+        <br/>
+        @if(error!=''){
+            <p class="alert alert-danger">{{error}}</p>
+        }
+    </div>
+</div>
