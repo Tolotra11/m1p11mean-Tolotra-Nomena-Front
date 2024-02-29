@@ -2,15 +2,15 @@
     
 <mat-dialog-content>
   <div >
-    <mat-form-field appearance="fill">
-      <mat-label>Date et heure de début</mat-label>
-      <input matInput type="datetime-local" [(ngModel)]="data.startDateTime" placeholder="Sélectionner une date et heure">
-    </mat-form-field>
+   
+      <label>Date et heure de début</label>
+      <input class="form-control" matInput type="datetime-local" [(ngModel)]="data.startDateTime" placeholder="Sélectionner une date et heure">
+    
 
-    <mat-form-field appearance="fill">
-      <mat-label>Date et heure de fin</mat-label>
-      <input matInput type="datetime-local" [(ngModel)]="data.endDateTime" placeholder="Sélectionner une date et heure">
-    </mat-form-field>
+   
+      <label>Date et heure de fin</label>
+      <input class="form-control" matInput type="datetime-local" [(ngModel)]="data.endDateTime" placeholder="Sélectionner une date et heure">
+    
   </div>
   <p style="color: red;">{{errorMessage}}</p>
 </mat-dialog-content>

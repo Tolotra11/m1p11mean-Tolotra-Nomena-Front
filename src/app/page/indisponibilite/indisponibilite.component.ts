@@ -21,6 +21,20 @@ export class IndisponibiliteComponent implements OnInit{
     initialView: 'timeGridWeek',
     locale:'fr',
     timeZone:'Africa/Nairobi',
+    buttonText: {
+      today: 'Aujourd\'hui',
+      month: 'Mois',
+      week: 'Semaine',
+      day: 'Jour',
+      list: 'Liste'
+    },
+    views: {
+      month: { buttonText: 'Mois' },
+      week: { buttonText: 'Semaine' },
+      day: { buttonText: 'Jour' },
+      list: { buttonText: 'Liste' }
+    },
+    allDaySlot:false,
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
@@ -53,6 +67,11 @@ export class IndisponibiliteComponent implements OnInit{
     this.dialog.open(IndisponibiliteModalComponent, {
       width: '400px',
       data: { event: clickInfo.event }
+    }).afterClosed().subscribe(result=>{
+      this.loadEvents();
+    },
+    error=>{
+      console.log(error);
     });
     
   }
@@ -61,13 +80,12 @@ export class IndisponibiliteComponent implements OnInit{
     this.dialog.open(AddUnavailabilityModalComponent, {
       width: '400px',
       data: { event: {} }
-    }).afterClosed().subscribe(result => {
-      
-      if (result && result.action === 'save') {
-          this.loadEvents();  
-      }
-      // Recharger les données du calendrier après la fermeture du dialogue
-     });
+    }).afterClosed().subscribe(result=>{
+      this.loadEvents();
+    },
+    error=>{
+      console.log(error);
+    });
   }
 
   

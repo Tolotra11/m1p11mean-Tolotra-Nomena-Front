@@ -19,10 +19,24 @@ export class AppointmentEmployeComponent implements OnInit{
     initialView: 'dayGridMonth',
     locale:'fr',
     timeZone:'Africa/Nairobi',
+    allDaySlot: false, 
     headerToolbar: {
       left: 'prev,next today',
       center: 'title',
       right: 'dayGridMonth,timeGridWeek,timeGridDay'
+    },
+    buttonText: {
+      today: 'Aujourd\'hui',
+      month: 'Mois',
+      week: 'Semaine',
+      day: 'Jour',
+      list: 'Liste'
+    },
+    views: {
+      month: { buttonText: 'Mois' },
+      week: { buttonText: 'Semaine' },
+      day: { buttonText: 'Jour' },
+      list: { buttonText: 'Liste' }
     },
     events: [],
     eventClick: this.handleEventClick.bind(this) // Initialisation vide des événements

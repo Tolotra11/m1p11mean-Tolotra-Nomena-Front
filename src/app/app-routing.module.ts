@@ -13,6 +13,7 @@ import { IndisponibiliteComponent } from './page/indisponibilite/indisponibilite
 import { UserComponent } from './component/user/user.component';
 import { StatistiqueComponent } from './component/statistique/statistique.component';
 import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
+import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
 
 const routes: Routes = [
   {
@@ -49,6 +50,8 @@ const routes: Routes = [
     path:'client/login',component: LoginClientComponent
   },{
     path:'client/register',component: RegisterComponent
+  },{
+    path:'Unauthorized',component: UnauthorizedComponent
   }
 ];
 

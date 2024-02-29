@@ -59,6 +59,7 @@ import { NgApexchartsModule } from 'ng-apexcharts';
 import { OffreSpecialComponent } from './page/offre-special/offre-special.component';
 import { AddOffSpecialModalComponent } from './page/offre-special/add-off-special-modal/add-off-special-modal.component';
 import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/delete-off-modal.component';
+import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +92,8 @@ import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/d
     StatistiqueComponent,
     OffreSpecialComponent,
     AddOffSpecialModalComponent,
-    DeleteOffModalComponent
+    DeleteOffModalComponent,
+    UnauthorizedComponent
   ],
   imports: [
     BrowserModule,

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit{
   }
 
   ngOnInit(): void {
+      this.checkLogin();
       this.loginForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: [
@@ -62,5 +63,20 @@ export class LoginComponent implements OnInit{
         }
       }
     );
+  }
+
+  checkLogin(){
+    if(this.authService.isLoggedIn()){
+        const role = this.authService.getRole();
+        if(this.role == 30){
+          this.router.navigate(['/manager/dashboard']);
+        }
+        else if(this.role == 10){
+            this.router.navigate(['/employe/login']);
+        }
+        else{
+          this.router.navigate(['/employe/rdv']);
+        }
+    }
   }
 }

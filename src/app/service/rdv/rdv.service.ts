@@ -83,4 +83,8 @@ export class RdvService {
     );
   }
 
+  delete(id:any):Observable<any>{
+    return this.http.delete(`${base_url}/employes/rdv/${id}`);
+  }
+
 }
