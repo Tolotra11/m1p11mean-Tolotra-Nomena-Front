@@ -1,1 +1,1 @@
-export const base_url = "https://m1p11mean-tolotra-nomena-back.onrender.com";
+export const base_url = "https://m1p11mean-tolotra-nomena-back.onrender.com/";
