@@ -1,7 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { OffreSpecialService } from '../../../service/offre_special/offre-special.service';
-import { error } from 'jquery';
 
 @Component({
   selector: 'app-delete-off-modal',

@@ -11,29 +11,10 @@ export interface DialogData {
 
 @Component({
     selector: 'app-service-dialog',
-    template: `
-      <h1 mat-dialog-title>{{ data.isNew ? 'Ajouter une dépense' : 'Modifier une dépense' }}</h1>
-      <div mat-dialog-content>
-        <mat-form-field appearance="fill">
-          <mat-label>Dépense </mat-label>
-          <input matInput [(ngModel)]="data.depense.libelle">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Date</mat-label>
-          <input matInput [(ngModel)]="data.depense.date" type="datetime-local">
-        </mat-form-field>
-        <mat-form-field appearance="fill">
-          <mat-label>Coût</mat-label>
-          <input matInput [(ngModel)]="data.depense.depense">
-        </mat-form-field>
-      </div>
-      <div mat-dialog-actions>
-        <button mat-button (click)="onNoClick()">Annuler</button>
-        <button mat-button (click)="data.isNew ? ajouterDepense() : modifierDepense()">Enregistrer</button>
-      </div>
-    `,
+    templateUrl: './depense-dialog.component.html',
   })
   export class DepenseDialogComponent {
+    error='';
     formattedDate = formatDateString;
     constructor(private depenseService: DepenseService,
       public dialogRef: MatDialogRef<DepenseDialogComponent>,
@@ -62,7 +43,8 @@ export interface DialogData {
           this.dialogRef.close();
         },
         (error) => {
-          console.error('Erreur lors de l"ajout de la dépense', error);
+          error = error.message;
+          console.error(error);
         }
       );
     }
