@@ -65,6 +65,8 @@ const routes: Routes = [
   }
   ,{
     path:'Unauthorized',component: UnauthorizedComponent
+  },{
+    path:'',component:LoginEmployeComponent
   }
 ];
 
