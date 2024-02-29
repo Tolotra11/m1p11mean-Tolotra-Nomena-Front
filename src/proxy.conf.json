@@ -1,0 +1,7 @@
+{
+    "/":{
+        "target":"https://m1p11mean-tolotra-nomena-back.onrender.com",
+        "secure":false,
+        "logLevel":"debug"
+    }
+}
