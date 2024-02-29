@@ -60,6 +60,7 @@ import { OffreSpecialComponent } from './page/offre-special/offre-special.compon
 import { AddOffSpecialModalComponent } from './page/offre-special/add-off-special-modal/add-off-special-modal.component';
 import { DeleteOffModalComponent } from './page/offre-special/delete-off-modal/delete-off-modal.component';
 import { UnauthorizedComponent } from './page/unauthorized/unauthorized.component';
+import { ProfilComponent } from './component/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -93,7 +94,8 @@ import { UnauthorizedComponent } from './page/unauthorized/unauthorized.componen
     OffreSpecialComponent,
     AddOffSpecialModalComponent,
     DeleteOffModalComponent,
-    UnauthorizedComponent
+    UnauthorizedComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
