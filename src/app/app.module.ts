@@ -67,6 +67,7 @@ import { EmployeLayoutComponent } from './layout/employe-layout/employe-layout.c
 import { PreferenceComponent } from './component/preference/preference.component';
 import { ListeComponent } from './component/liste/liste.component';
 import { ListComponent } from './component/list/list.component';
+import { ClientHeaderComponent } from './component/header/client-header/client-header.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -106,7 +107,8 @@ import { ListComponent } from './component/list/list.component';
     EmployeLayoutComponent,
     PreferenceComponent,
     ListeComponent,
-    ListComponent
+    ListComponent,
+    ClientHeaderComponent
   ],
   imports: [
     BrowserModule,

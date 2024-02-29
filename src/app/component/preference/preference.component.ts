@@ -8,6 +8,7 @@ import { base_url } from '../../utils/url';
   styleUrl: './preference.component.css'
 })
 export class PreferenceComponent {
+  loading = true;
   listPreferenceEmp:PreferenceEmploye[]=[];
   listePreferenceServices:PreferenceService[]=[];
   idservice:string="";
@@ -16,6 +17,7 @@ export class PreferenceComponent {
   employes:any[]=[];
   idClient:string="";
   constructor(private http:HttpClient,private elementRef:ElementRef){
+    this.loading = true;
     this.getListPreferedService()
    this.getListPreferedEmploye()
    this.http.get(base_url+'/services/listeservices').subscribe(
@@ -39,7 +41,8 @@ export class PreferenceComponent {
          (res: any) => {
            // Handle successful response
            if (res) {
-             this.employes=res;          
+             this.employes=res; 
+                      
              } 
            },
            (error) => {
@@ -49,6 +52,7 @@ export class PreferenceComponent {
              alert('error occurred');
            }
          );
+         this.loading = false;
  }
 
  onSelectService(id:Event){
