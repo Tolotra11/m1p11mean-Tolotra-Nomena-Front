@@ -68,7 +68,7 @@
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input type="email" formControlName="email" [value]="Rakotonirina123&#64;gmail.com" [ngClass]="{ 'is-invalid':  submitted && f['email'].errors }" placeholder="Username"  required class="form-control bg-transparent" id="name" >
+                                        <input type="email" formControlName="email"  [ngClass]="{ 'is-invalid':  submitted && f['email'].errors }" placeholder="Username"  required class="form-control bg-transparent" id="name" >
                                         <label for="name">Your email </label>
                                         <br/>
                                         @if(submitted && f['email'].errors){
@@ -83,7 +83,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                        <input formControlName="password" [value]="12345678" [ngClass]="{ 'is-invalid':  f['password'].errors }" placeholder="Password" required class="form-control bg-transparent" id="email" >
+                                        <input formControlName="password" [ngClass]="{ 'is-invalid':  f['password'].errors }" placeholder="Password" required class="form-control bg-transparent" id="email" >
                                         <label for="email">Password </label>
                                     </div>
                                 </div>                              

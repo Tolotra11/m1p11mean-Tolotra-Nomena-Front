@@ -23,9 +23,9 @@ export class LoginComponent implements OnInit{
 
   ngOnInit(): void {
       this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
+        email: ['Rakotonirina123@gmail.com', [Validators.required, Validators.email]],
         password: [
-          '',
+          '12345678',
           [
             Validators.required,
           ]
