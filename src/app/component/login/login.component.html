@@ -46,6 +46,18 @@
                     <a class="text-primary fw-bold ms-2" routerLink="/client/register">Créer un compte</a>
                   </div>
                 }
+                @else if(role === 20){
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">Se connecter en tant que manager?</p>
+                    <a class="text-primary fw-bold ms-2" routerLink="/manager/login">Manager</a>
+                  </div>
+                }
+                @else{
+                  <div class="d-flex align-items-center justify-content-center">
+                    <p class="fs-4 mb-0 fw-bold">Se connecter en tant qu'employe?</p>
+                    <a class="text-primary fw-bold ms-2" routerLink="/employe/login">Employe</a>
+                  </div>
+                }
                 </form>
                 @if (submitted && error){
                     <div class="alert alert-danger">

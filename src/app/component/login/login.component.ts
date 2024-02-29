@@ -11,6 +11,7 @@ import { PushnotificationService } from '../../service/pushNotification/pushnoti
 export class LoginComponent implements OnInit{
   @Input() role = 0;
   error : string|undefined;
+
   loginForm: FormGroup = new FormGroup({
     email: new FormControl(''),
     password: new FormControl('')
@@ -23,16 +24,41 @@ export class LoginComponent implements OnInit{
   ngOnInit(): void {
       this.checkLogin();
       this.loginForm = this.fb.group({
-        email: ['', [Validators.required, Validators.email]],
+        email: [this.getEmailDefaultValue(), [Validators.required, Validators.email]],
         password: [
-          '',
+          this.getPasswordDefaultValue(),
           [
             Validators.required,
           ]
         ]
       })
+     
   }
   
+  getEmailDefaultValue(){
+    if(this.role === 20){
+      return 'Rakotonirina@gmail.com';
+    }
+    else if(this.role == 10){
+      return 'Rakotonirina123@gmail.com';
+    }
+    else{
+      return 'admin@gmail.com';
+    }
+  }
+
+  getPasswordDefaultValue() {
+    if(this.role === 20){
+      return '12345678';
+    }
+    else if(this.role == 10){
+      return '12345678';
+    }
+    else{
+      return '12345678';
+    }
+  }
+
   get f(): { [key: string]: AbstractControl } {
     return this.loginForm.controls;
   }
